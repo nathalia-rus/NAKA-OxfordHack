@@ -256,7 +256,7 @@
             if (message == undefined)
                 return;
             
-            $("#speach").append(message + " ");
+            $("#speach").append(message + " ").hide().fadeIn("fast");
 
             /* Checking if input sentence contains any previously unmentioned symptoms 
                and adding them to the list of symptoms
@@ -264,7 +264,7 @@
             for (var i=0; i < symptoms.length; i++) {
                 if (message.toLowerCase().indexOf(symptoms[i]) >= 0 && (jQuery.inArray(symptoms[i], mentioned_symptoms) == -1)) {
                     mentioned_symptoms.push(symptoms[i]);
-                    $("#symptoms").append(buildBadge(symptoms[i],i));
+                    $("#symptoms").append(buildBadge(symptoms[i],i)).hide().fadeIn("fast");
                 }
             }
 
