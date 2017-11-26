@@ -154,10 +154,8 @@
                 <div class=" box_conclusion">
                     <div class="text">
 
-                        CONCLUSION use ESLint please install eslint by running 'npm install eslint' in the workspace folder NAKA front-end or globally using 'npm install -g eslint'. You need to reopen the workspace after installing eslint. Alternatively you can disable ESLint
-                        for the workspace folder NAKA front-end by executing the 'Disable ESLint' command. [Info - 22:11:09] Failed to load the ESLint library for the document /Users/nathaliarus/NAKA front-end/main.js To use ESLint please install eslint
-                        by running install eslint' in the workspace folder NAKA front-end oer NAKA front-end by executing the 'Disable ESLint' command. [Info - 22:11:09] Failed to load the ESLint library for the document /Users/nathaliarus/NAKA front-end/main.js
-                        To use ESLint please install eslint by running install eslint' in the workspace folder NAKA front-end o
+
+                        Next step: using TPP's API, we would display here the most accurate details of the final diagnose, with the description and explanation of the disease. <br/><br/> Ex: "Parkinson's disease is a disorder that affects nerve cells, or neurons, in a part of the brain that controls muscle movement. In Parkinson's, neurons that make a chemical called dopamine die or do not work properly. Dopamine normally sends signals that help coordinate your movements. No one knows what damages these cells. Symptoms of Parkinson's disease may include</p> <ul> <li>Trembling of hands, arms, legs, jaw and face </li> <li>Stiffness of the arms, legs and trunk </li> <li>Slowness of movement </li> <li>Poor balance and coordination </li> </ul> <p>As symptoms get worse, people with the disease may have trouble walking, talking or doing simple tasks. They may also have problems such as depression, sleep problems or trouble chewing, swallowing or speaking. </p> <p>Parkinson's usually begins around age 60, but it can start earlier. It is more common in men than in women. There is no cure for Parkinson's disease. A variety of medicines sometimes help symptoms dramatically."
                     </div>
 
                 </div>
@@ -175,13 +173,12 @@
                 </span>
 
                 <div class=" box_papers">
-                    <span class="title_papers_top literature" id="paper_1"> <p ></p> </span>
-                    <span class="title_papers_top literature" id="paper_2"> <p></p> </span>
-                    <span class="title_papers_top literature" id="paper_3"> <p></p> </span>
-                    <span class="title_papers_bottom literature" id="paper_4"> <p>Title</p> </span>
-                    <span class="title_papers_bottom literature" id="paper_5"> <p>Title</p> </span>
-                    <span class="title_papers_bottom literature" id="paper_6"> <p>Title</p> </span>
-
+                    <span class="title_papers_top literature" id="paper_1" number="0"> <p ></p> </span>
+                    <span class="title_papers_top literature" id="paper_2" number="1"> <p></p> </span>
+                    <span class="title_papers_top literature" id="paper_3" number="2"> <p></p> </span>
+                    <span class="title_papers_bottom literature" id="paper_4" number="3"> <p>Title</p> </span>
+                    <span class="title_papers_bottom literature" id="paper_5" number="4"> <p>Title</p> </span>
+                    <span class="title_papers_bottom literature" id="paper_6" number="5"> <p>Title</p> </span>
                 </div>
 
 
@@ -230,12 +227,12 @@
                 </div>
 
                 <div class="legend_space">
-                    <form name="message" action="">
+<!--                    <form name="message" action="">-->
                         <input name="usertext" type="text" id="keyconclusion" class="legend" ; placeholder="Look for your conclusion here..." />
 
 
                         <button type="button" id="submitkeyconclusion" value="Send" class="legend"> Search </button>
-                    </form>
+<!--                    </form>-->
                 </div>
 
 
@@ -247,6 +244,29 @@
 
 
             </div>
+        
+        
+                    <!--            Modal data-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document" style="width:1250px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id='exampleModalBody'>
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a target="_blank" class="btn btn-primary" id="ModalLinkArticle" href="#" role="button">Full Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
         </main>
     </body>
 
@@ -321,12 +341,12 @@
                 console.log( index + ": " + $( this ).text() );
             });
 
-            $("#paper_1").text(output[1]['title']);
-            $("#paper_2").text(output[2]['title']);
-            $("#paper_3").text(output[3]['title']);
-            $("#paper_4").text(output[4]['title']);
-            $("#paper_5").text(output[5]['title']);
-            $("#paper_6").text(output[6]['title']);
+            $("#paper_1").html('<a href="javascript:;" id="paper_1" number="0">'+output[0]['title']+'</a>');
+            $("#paper_2").html('<a href="javascript:;" id="paper_2" number="1">'+output[1]['title']+'</a>');
+            $("#paper_3").html('<a href="javascript:;" id="paper_3" number="2">'+output[2]['title']+'</a>');
+            $("#paper_4").html('<a href="javascript:;" id="paper_4" number="3">'+output[3]['title']+'</a>');
+            $("#paper_5").html('<a href="javascript:;" id="paper_5" number="4">'+output[4]['title']+'</a>');
+            $("#paper_6").html('<a href="javascript:;" id="paper_6" number="5">'+output[5]['title']+'</a>');
 
         });
     }
@@ -338,7 +358,7 @@
 <script>
     $("#suggestedLit").hide();
 
-    $(".card-link").click(function(){
+    $(".literature").click(function(){
         //alert($(this).attr("number"));
         var id = $(this).attr("number");
         console.log(output[id]['title']);

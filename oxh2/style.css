@@ -183,7 +183,7 @@
 #paper_6 {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 10px;
     text-align: center;
     font-style: italic;
 }
@@ -194,7 +194,11 @@
     height: 30%;
     border: 5px solid rgb(205, 242, 245);
     margin-top: 0.5cm;
+    padding-top: 0.5cm;
+    padding-left: 0.3cm;
+    padding-right: 0.3cm;
     margin-left: 3%;
+    overflow-y: scroll;
 }
 
 .title_papers_bottom {
@@ -205,4 +209,5 @@
     margin-bottom: 0.5cm;
     margin-top: 0.2cm;
     margin-left: 3%;
+    overflow-y: scroll;
 }

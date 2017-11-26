@@ -4,7 +4,7 @@ $words = $_GET['words'];
 $miny = $_GET['miny'];
 $maxy = $_GET['maxy'];
 
-$API_KEY = 'MSwxNTExNjk5MDk0MDQ2LDUwNDUwMzkxMSwxMDI4LGFsbCwsLGNkMzhjNjJmMjg5MTU2NGIzZDhiMzY4M2VlZjczYjYxNDBmY2d4cnFiLGM5NjVhNzExLTI2NGQtMzk3OS1hOGNkLTUzYzM0MDIwOWIzYSxnak4takRkVVVXNjYzcElqSmtlWldKTm94cGM';
+$API_KEY = 'MSwxNTExNzAyOTAyNzU1LDUwNDUwMzkxMSwxMDI4LGFsbCwsLDQxN2NlOWE2NzFhYmEzNDk4MTlhN2QxLWVhZjQwMTZkNzM2OWd4cnFiLGM5NjVhNzExLTI2NGQtMzk3OS1hOGNkLTUzYzM0MDIwOWIzYSxFdGVYR3BNVDE4RXJ4RGxMdHZ2dkxSeXRwRG8';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,"https://api.mendeley.com/search/catalog?limit=".$number."&type=journal&title=".str_replace(',','+',$words)."+treatment&min_year=".$miny."&max_year=".$maxy."&keywords=medicine");
