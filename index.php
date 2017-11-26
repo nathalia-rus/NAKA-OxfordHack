@@ -15,11 +15,18 @@
 
 
         <style>
-            #btn-close-modal {
-                width:100%;
-                text-align: center;
-                cursor:pointer;
-                color:#fff;
+            @media screen and (min-width: 768px) {
+                .modal-dialog {
+                    width: 700px; /* New width for default modal */
+                }
+                .modal-sm {
+                    width: 350px; /* New width for small modal */
+                }
+            }
+            @media screen and (min-width: 992px) {
+                .modal-lg {
+                    width: 950px; /* New width for large modal */
+                }
             }
 
         </style>
@@ -141,9 +148,66 @@
                         <div id="symptoms"></div>
                     </div>
                 </div>
+
+                <div clas="row" id="suggestedLit">
+                    <h1 class="display-4">Suggested literature </h1><hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card literature" number="1">
+                                <div class="card-body">
+                                    <h4 class="card-title">Special title treatment</h4>
+                                    <div class="card-body">
+                                        <a href="#" class="card-link" number="0">More info</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card literature" number="2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Special title treatment</h4>
+                                    <div class="card-body">
+                                        <a href="#" class="card-link" number="1">More info</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card literature" number="3">
+                                <div class="card-body">
+                                    <h4 class="card-title">Special title treatment</h4>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="card-link" number="2">More info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="temp">
+                    </div>
+                </div>
             </div>
 
-
+            <!--            Modal data-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document" style="width:1250px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id='exampleModalBody'>
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a target="_blank" class="btn btn-primary" id="ModalLinkArticle" href="#" role="button">Full Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
     </body>
@@ -171,11 +235,52 @@
     <script>
         // Array containing all mentioned symptoms
         var mentioned_symptoms = [];
-        
+
         // Generating badges for different diseases with different bootstrap class names
         function buildBadge(title, i) {
             var n = i % class_styles.length;    
             return '<span class="badge badge-'+class_styles[n]+'"><h5>'+title+'</h5></span> ';
+        }
+
+        var output = 0;
+
+        function updateSuggestions(out) {
+            test = 2;
+            /* Number of entries to return */
+            var RETURN_ENTRIES = 6;
+            /* Earliest publication data */
+            var MIN_YEAR = 2010;
+            /* Latest publication date */
+            var MAX_YEAR = 2017;
+
+            var lookuplist = "";
+            for(var i=0; i<mentioned_symptoms.length; i++) {
+                lookuplist = mentioned_symptoms[i] + "," + lookuplist;
+            }
+
+            console.log(lookuplist);
+
+            /*
+                Call Mendeley API to obtain relevent research articles
+            */
+            $.get( "mendeley/curl.php", { number: RETURN_ENTRIES, words: lookuplist, miny: "2010", maxy: MAX_YEAR } )
+                .done(function( data ) {
+                //console.log(data);
+                output = JSON.parse(data);
+                out = output;
+                /*
+                for(var i=0; i < output.length; i++) {
+                    $("#temp").append(output[i]['title'] + "<br><br> ");
+                }
+                */
+
+                $( ".literature" ).each(function( index ) {
+                    $(".card-title").eq(index).text(output[index]['title']);
+                    //$(this).fadeOut();
+                    console.log( index + ": " + $( this ).text() );
+                });
+
+            });
         }
     </script>
 
@@ -183,11 +288,24 @@
     <script src="static/js/microsoft-sdk-action.js"></script>
 
     <script>
+        $("#suggestedLit").hide();
+
         $(".button-run").click(function() {
             if (isListening == false)
                 $("#startBtn").click();
             else 
                 $("#stopBtn").click();
+        });
+
+        $(".card-link").click(function(){
+            //alert($(this).attr("number"));
+            var id = $(this).attr("number");
+            console.log(output[id]['title']);
+            $("#exampleModalLabel").text(output[id].title);
+            $("#exampleModalBody").text(output[id].abstract);
+            $("#ModalLinkArticle").attr("href", output[id].link);
+            $("#exampleModal").modal();
+
         });
     </script>
 

@@ -267,7 +267,9 @@
                     $("#symptoms").append(buildBadge(symptoms[i],i)).hide().fadeIn("fast");
                 }
             }
-
+                    
+                    updateSuggestions(output);
+                    $("#suggestedLit").fadeIn("slow");
         }
 
         function OnComplete() {
