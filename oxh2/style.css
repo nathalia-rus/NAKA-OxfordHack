@@ -1,0 +1,208 @@
+.center {
+    text-align: center;
+}
+
+.bigtitle {
+    position: absolute;
+    font-size: 45px;
+    color: rgb(122, 221, 214);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 50px;
+    padding-left: 5%;
+    padding-top: 0;
+}
+
+.smalltitle {
+    position: absolute;
+    padding-left: 70%;
+    font-size: 15px;
+    margin-top: 0.2cm;
+    color: #0FBAB0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu {
+    position: absolute;
+    padding-left: 85%;
+    padding-top: 0.4cm;
+    font-size: 11px;
+    color: #AAC5C3;
+    font-family: 'Montserrat', sans-serif;
+    top: 0;
+}
+
+.banner {
+    position: absolute;
+    width: 100%;
+    background-color: #DDFCFF;
+    border: 1px solid #14FF2C;
+    height: 1.5cm;
+    margin-top: 0px;
+
+}
+
+.box_speech {
+    font-family: 'Montserrat', sans-serif;
+    width: 40%;
+    height: 150px;
+    border-top: 5px solid #A5FFA8;
+    padding-top: 10px;
+    overflow-y: scroll;
+    margin-left: 0;
+    margin-bottom: 0.4cm;
+}
+
+.text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #495050;
+    padding-left: 0px;
+    text-align: justify;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+.legend {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: #0FBAB0;
+}
+
+.legend_symtoms {
+    position: relative;
+    margin-left: 0;
+    margin-bottom: 0.4cm;
+    margin-top: -2cm;
+}
+
+.legend_papers {
+    float: right;
+    padding-right: 43%;
+    padding-bottom: 0cm;
+    padding-top: 0.5cm;
+}
+
+.legend_conclusion {
+    margin-left: 51%;
+    padding-bottom: 0.5cm;
+}
+
+.box_symptoms {
+    font-family: 'Montserrat', sans-serif;
+    width: 40%;
+    height: 100px;
+    border-top: 5px solid #A5FFA8;
+    padding-top: 10px;
+    overflow-y: scroll;
+    margin-left: 0;
+    margin-bottom: 0.4cm;
+}
+
+.box_conclusion {
+    font-family: 'Montserrat', sans-serif;
+    width: 50%;
+    height: 150px;
+    border-top: 5px solid #A5FFA8;
+    padding-top: 10px;
+    overflow-y: scroll;
+    float: right;
+}
+
+.box_notes {
+    font-family: 'Montserrat', sans-serif;
+    width: 40%;
+    height: 150px;
+    border-top: 5px solid #A5FFA8;
+    padding-top: 10px;
+    overflow-y: scroll;
+    margin-left: 0;
+    margin-bottom: 0.4cm;
+}
+
+.box_notebook {
+    font-family: 'Montserrat', sans-serif;
+    width: 40%;
+    height: 150px;
+    padding-top: 10px;
+    border-color: white;
+    overflow-y: scroll;
+    margin-left: 0;
+    margin-bottom: 0.4cm;
+}
+
+.box_papers {
+    font-family: 'Montserrat', sans-serif;
+    width: 50%;
+    height: 400px;
+    border-top: 5px solid #A5FFA8;
+    padding-top: 10px;
+    overflow-y: scroll;
+    float: right;
+}
+
+ ::-webkit-input-placeholder {
+    /* ( = Chrome/Opera/Safari ) */
+    color: rgba(133, 133, 133, 0.71);
+    padding-left: 15px;
+}
+
+.text_action {
+    position: relative;
+    margin-left: 0;
+    margin-bottom: 0.4cm;
+    margin-top: -2cm;
+}
+
+#usertext {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 150px;
+    padding-top: 10px;
+    overflow: scroll;
+    margin-bottom: 0.4cm;
+    font-size: 10px;
+}
+
+#submittext {
+    position: relative;
+    margin-left: 0;
+    margin-bottom: 0.4cm;
+    margin-top: -2cm;
+}
+
+#keyconclusion {
+    width: 35%;
+    font-size: 10px;
+}
+
+#paper_1,
+#paper_2,
+#paper_3,
+#paper_4,
+#paper_5,
+#paper_6 {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+}
+
+.title_papers_top {
+    font-family: 'Montserrat', sans-serif;
+    width: 25%;
+    height: 30%;
+    border: 5px solid rgb(205, 242, 245);
+    margin-top: 0.5cm;
+    margin-left: 3%;
+}
+
+.title_papers_bottom {
+    font-family: 'Montserrat', sans-serif;
+    width: 25%;
+    height: 30%;
+    border: 5px solid rgb(205, 242, 245);
+    margin-bottom: 0.5cm;
+    margin-top: 0.2cm;
+    margin-left: 3%;
+}
