@@ -268,7 +268,7 @@
                 }
             }
                     
-                    updateSuggestions(output);
+                    //updateSuggestions(output); NAKA
                     $("#suggestedLit").fadeIn("slow");
         }
 
